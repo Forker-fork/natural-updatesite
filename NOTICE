@@ -1,0 +1,80 @@
+Natural - Cucumber and JBehave editors for Eclipse
+=================================================
+
+This product is licensed under the Eclipse Public License, Version 1.0 (EPL-1.0).
+The full license text is in the accompanying LICENSE file and is also available at:
+
+    https://www.eclipse.org/legal/epl-v10.html
+
+
+ORIGINAL WORK
+-------------
+
+This repository is a fork of the "Natural" Eclipse plugin created by
+Roberto Lo Giacco.
+
+    Upstream project: https://github.com/rlogiacco/Natural
+    Original author:  Roberto Lo Giacco <rlogiacco@gmail.com>
+    Copyright:        (c) Copyright Roberto Lo Giacco <rlogiacco@gmail.com>
+                      and others 2012. All rights reserved.
+    License:          Eclipse Public License, Version 1.0
+
+All copyright in the original work remains with its respective authors. Nothing
+in this NOTICE alters, limits or supersedes the terms of the Eclipse Public
+License, Version 1.0, under which the original work was received.
+
+
+MODIFICATIONS IN THIS FORK
+--------------------------
+
+    Copyright (c) 2026 Hariharan M
+
+Modifications and additions contributed in this fork are made available under
+the same Eclipse Public License, Version 1.0, in accordance with the terms of
+that license.
+
+Summary of changes made in this fork relative to the upstream project:
+
+  Platform upgrade
+    - Eclipse target platform moved from 2020-03 to 2026-06
+    - Xtext 2.21.0 -> 2.43.0, Tycho 1.6.0 -> 5.0.3, MWE2 2.11.2 -> 2.26.0
+    - Java 8 -> Java 25; all bundles now require execution environment JavaSE-25
+    - All modules unified at version 2.0.0
+
+  Build and packaging fixes
+    - org.agileware.natural.common: bin.includes was missing "." so the bundle
+      shipped no compiled classes
+    - org.agileware.natural.cucumber.ui: org.eclipse.xtext.ui.codemining changed
+      from an optional package import to a required bundle
+    - Features updated to include the .ide bundles they depend on
+    - org.agileware.natural.testing: corrected the bundled Hamcrest jar and
+      added the missing Bundle-ClassPath
+
+  Step definition navigation (org.agileware.natural.common,
+  org.agileware.natural.cucumber.ui)
+    - JavaAnnotationMatcher: made the step definition cache thread safe and
+      added lazy JDT change listener registration for cache invalidation
+    - JavaAnnotationMatcher: hardened against annotations without a value and
+      against annotation values that are not valid regular expressions
+    - CucumberHyperlinkHelper: fixed unmodifiable result list and made the
+      node model traversal null safe
+
+  JBehave grammar (org.agileware.natural.jbehave)
+    - Corrected the nullable EOL terminal
+    - Added Lifecycle, Before, After, Scope and Outcome rules
+    - Added the "So that" narrative form
+    - Made Story scenarios and Scenario descriptions optional
+    - Tag values and newline handling after section keywords
+
+  Web modules (org.agileware.natural.cucumber.web,
+  org.agileware.natural.jbehave.web)
+    - Migrated from javax.servlet to jakarta.servlet
+    - Migrated from Jetty 9 to Jetty 12 (org.eclipse.jetty.ee10)
+
+
+THIRD PARTY CONTENT
+-------------------
+
+This product includes or depends on software developed by third parties,
+including the Eclipse Platform, Eclipse Xtext, Eclipse EMF, ANTLR, Google Guava,
+Google Guice and Hamcrest. Each remains subject to its own license terms.

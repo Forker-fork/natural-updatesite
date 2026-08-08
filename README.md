@@ -56,3 +56,16 @@ Features: `org.agileware.natural.cucumber.feature`, `org.agileware.natural.jbeha
 
 [Eclipse Public License 1.0](LICENSE). Originally created by Roberto Lo Giacco —
 see the [upstream project](https://github.com/rlogiacco/Natural).
+
+## Attribution
+
+This is a **fork** of [rlogiacco/Natural](https://github.com/rlogiacco/Natural),
+originally created by Roberto Lo Giacco.
+
+- **Original work** — © Roberto Lo Giacco &lt;rlogiacco@gmail.com&gt; and others, 2012
+- **Modifications in this fork** — © 2026 Hariharan M
+
+Both are licensed under the [Eclipse Public License 1.0](LICENSE). Copyright in the
+original work remains with its respective authors; nothing here alters or supersedes the
+EPL 1.0. See [NOTICE](NOTICE) for the detailed attribution and a summary of the changes
+made in this fork.
