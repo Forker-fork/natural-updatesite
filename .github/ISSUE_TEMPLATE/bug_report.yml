@@ -1,0 +1,104 @@
+name: Bug report
+description: Something is not working in the Natural plugin
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please note this is a **fork** of
+        [rlogiacco/Natural](https://github.com/rlogiacco/Natural) — report issues with
+        the original project upstream, and issues with this build here.
+
+  - type: input
+    id: eclipse-version
+    attributes:
+      label: Eclipse version
+      description: Help → About Eclipse IDE (e.g. 2026-06 / 4.40)
+      placeholder: "2026-06 (4.40)"
+    validations:
+      required: true
+
+  - type: input
+    id: java-version
+    attributes:
+      label: Java version
+      description: Output of `java -version`
+      placeholder: "25.0.4"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Natural version
+      description: Help → About → Installation Details → Installed Software
+      placeholder: "2.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: file-type
+    attributes:
+      label: File type
+      options:
+        - .feature (Cucumber)
+        - .story (JBehave)
+        - not file specific
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a .feature file
+        2. Ctrl+click a step
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: snippet
+    attributes:
+      label: Relevant Gherkin and step definition
+      description: >
+        If this is about step navigation or validation, please include the Gherkin step
+        and the Java step definition with its annotation and import.
+      render: java
+
+  - type: textarea
+    id: error-log
+    attributes:
+      label: Error log
+      description: >
+        Any stack trace from Window → Show View → Error Log, or from
+        <workspace>/.metadata/.log
+      render: text
+
+  - type: checkboxes
+    id: known-limitations
+    attributes:
+      label: Known limitations
+      description: >
+        Please confirm your issue is not one of the documented limitations.
+      options:
+        - label: >
+            My step definitions use regular expressions, not Cucumber Expressions
+            (`{int}`, `{string}` are not supported)
+          required: true
+        - label: >
+            My step definition annotations come from `io.cucumber.java.en`
+            (other packages are not recognised)
+          required: true
+        - label: >
+            I understand `.story` (JBehave) files have no Ctrl+click navigation
+          required: true
