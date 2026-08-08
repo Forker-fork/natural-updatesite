@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natural - Eclipse Update Site</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+  h1 { margin-bottom: .25rem; }
+  .sub { color: #6a737d; margin-top: 0; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .9em; }
+  .url {
+    display: block; padding: .9rem 1rem; margin: 1.25rem 0;
+    background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+    word-break: break-all; font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #d0d7de; }
+  th { width: 9rem; }
+  ol { padding-left: 1.3rem; }
+  li { margin: .35rem 0; }
+  .note { background: #fff8c5; border: 1px solid #d4a72c55; border-radius: 6px; padding: .8rem 1rem; }
+  footer { margin-top: 2.5rem; color: #6a737d; font-size: .9em; }
+  @media (prefers-color-scheme: dark) {
+    .url { background: #161b22; border-color: #30363d; }
+    .note { background: #2d2a1f; }
+    th, td { border-color: #30363d; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Natural</h1>
+<p class="sub">Cucumber and JBehave editors for Eclipse &mdash; syntax highlighting, outline,
+content assist, validation and navigation to Java step definitions.</p>
+
+<h2>Update site</h2>
+<p>Paste this URL into Eclipse:</p>
+<code class="url">https://forker-fork.github.io/natural-updatesite/</code>
+
+<ol>
+  <li><strong>Help &rarr; Install New Software&hellip;</strong></li>
+  <li>Click <strong>Add&hellip;</strong>, paste the URL above, give it the name <em>Natural</em>, click <strong>Add</strong></li>
+  <li>Tick <strong>Cucumber</strong> and <strong>Jbehave</strong></li>
+  <li><strong>Next &rarr; Finish</strong>, then restart Eclipse</li>
+</ol>
+
+<h2>Requirements</h2>
+<table>
+  <tr><th>Eclipse</th><td>2025-12 or later (tested on 2026-06 / 4.40)</td></tr>
+  <tr><th>Java</th><td>25</td></tr>
+  <tr><th>Xtext</th><td>2.43 (ships with the Eclipse release train)</td></tr>
+</table>
+
+<p class="note"><strong>Version 2.0.0 is a breaking release.</strong> Java 8 is no longer
+supported and the minimum Eclipse version is now 2025-12, because Xtext 2.43 requires it.
+Older IDEs cannot install this build.</p>
+
+<h2>Included features</h2>
+<ul>
+  <li><strong>Cucumber Editor</strong> &mdash; <code>.feature</code> files</li>
+  <li><strong>JBehave Editor</strong> &mdash; <code>.story</code> files</li>
+</ul>
+
+<h2>Step definition navigation</h2>
+<p>Ctrl+click a step in a <code>.feature</code> file to jump to its Java method. This
+requires step definitions annotated from <code>io.cucumber.java.en</code> in an open Java
+project in the same workspace, and the annotation value must be a <em>regular
+expression</em>:</p>
+<pre>@Given("^I have (\d+) cukes$")   <em>&larr; resolves</em>
+@Given("I have {int} cukes")      <em>&larr; Cucumber Expressions are not supported</em></pre>
+<p>The Gherkin keyword is not part of the match, so the same step text works under
+<code>Given</code>, <code>When</code>, <code>Then</code>, <code>And</code> or <code>But</code>.</p>
+
+<h2>Known limitations</h2>
+<ul>
+  <li>Cucumber Expressions (<code>{int}</code>, <code>{string}</code>&hellip;) are skipped &mdash; use regex</li>
+  <li>Only the <code>io.cucumber.java.en</code> annotation package is recognised</li>
+  <li><code>.story</code> files have no Ctrl+click navigation</li>
+  <li>English Gherkin keywords only; no <code>*</code> step keyword</li>
+</ul>
+
+<footer>
+  Licensed under the <a href="LICENSE">Eclipse Public License 1.0</a>.
+  Originally created by Roberto Lo Giacco &mdash; see the
+  <a href="https://github.com/rlogiacco/Natural">upstream project</a>.
+</footer>
+
+</body>
+</html>
